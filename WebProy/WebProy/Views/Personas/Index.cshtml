@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebProy.Persona>
+
+@{
+    ViewBag.Title = "Listado de personas";
+}
+
+<h2>Listado de personas</h2>
+
+<p>
+    <span style="background-color:aqua;padding:5px;">  @Html.ActionLink("Agregar nueva persona", "Create")</span> 
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroDocumento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoDocumento.Nombre)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroDocumento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoDocumento.Nombre)
+        </td>
+  
+    </tr>
+}
+
+</table>
